@@ -1,0 +1,35 @@
+## Ranking of DHS Use Cases
+
+**1. DHS-368: Commercial Generative AI for Text Generation**
+**2. DHS-369: Commercial Generative AI for Image Generation**
+**3. DHS-373: Commercial Generative AI for Code Generation**
+**4. DHS-34: Automated Indicator Sharing (AIS) Automated PII Detection**
+**5. DHS-4: Automated Indicator Sharing (AIS) Automated PII Detection**
+**6. DHS-40: Cyber Threat Intelligence Feed Correlation**
+**7. DHS-41: Cyber Incident Reporting**
+**8. DHS-42: Cyber Vulnerability Reporting**
+**9. DHS-43: AI Security and Robustness**
+**10. DHS-44: Operational Activities Explorer**
+**11. DHS-45: Text Analytics for Survey Responses (TASR)**
+**12. DHS-48: Email Analytics**
+**13. DHS-49: Mobile Device Analytics**
+**14. DHS-5: AIS Scoring and Feedback**
+**15. DHS-345: Touchless PreCheck Idintity Solution**
+**16. DHS-13: Asylum Text Analytics**
+**17. DHS-14: Biometrics Enrollment Tool (BET)**
+**18. DHS-16: Evidence Classifier**
+**19. DHS-17: FDNS-DS NexGen**
+**20. DHS-20: Timeseries Analysis and Forecasting**
+**21. DHS-55: Person-Centric Identity Services Deduplication Model**
+**22. DHS-56: Person-Centric Identity Services A-Number Management Model**
+**23. DHS-57: Identity Match Option (IMO) Process with DBIS Data Marts**
+**24. DHS-58: Sentiment Analysis - Surveys**
+**25. DHS-60: Predicted to Naturalize**
+**26. DHS-61: I-485 Family Matching**
+**27. DHS-63: Topic Modeling  on Request For Evidence data sets**
+**28. DHS-64: I-539 approval prediction**
+**29. DHS-263: Silicon Valley Innovation Program (SVIP) Language Translator**
+**30. DHS-250: FEMA OCFO GPT**
+**31. DHS-206: Semantic Search and Summarization**
+**32. DHS-254: Planning Assistant for Resilient Communities (PARC)**
+**33. DHS-366: Large Language Models for an Officer Training Tool**

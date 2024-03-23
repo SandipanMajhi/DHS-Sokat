@@ -1,0 +1,10 @@
+langchain 
+langchain-community 
+langchain_groq 
+groq 
+# faiss-gpu 
+openai 
+langchain_openai
+pandas
+# json
+openpyxl
