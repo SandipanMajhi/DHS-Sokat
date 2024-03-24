@@ -1,5 +1,5 @@
-groq_api_key = "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"
-openai_api_key = "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"
+groq_api_key = ""
+openai_api_key = ""
 
 open_source_models = ["llama2-70b-4096", "gemma-7b-it", "mixtral-8x7b-32768"]
 paid_source_models = ["gpt-4-turbo-preview", "gpt-3.5-turbo"]
