@@ -12,3 +12,5 @@ streamlit
 dash
 plotly
 streamlit-aggrid
+matplotlib
+numpy
