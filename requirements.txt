@@ -9,3 +9,6 @@ pandas
 # json
 openpyxl
 streamlit
+dash
+plotly
+streamlit-aggrid
