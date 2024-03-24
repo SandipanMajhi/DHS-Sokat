@@ -1,0 +1,44 @@
+# builder = GridOptionsBuilder.from_dataframe(main_df)
+
+# options  = builder.build()
+
+# for col in options["columnDefs"]:
+#     if col["headerName"] == "Summaries":
+#         col["hide"] = True
+
+# AgGrid(data = main_df, 
+#        gridOptions=options, width=1000, fit_columns_on_grid_load=True, 
+#        columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS, theme="streamlit", allow_unsafe_jscode=True)
+
+#### Main Code #####
+
+# main_df = load_main_frame()
+
+# if add_model == paid_source_models[1]: #### GPT 3.5 model chosen
+
+#     gpt35_frames, risklist, justlist = modify_columns(model_frames=load_gpt35_data(), risks=risk_dimensions_classes)
+#     choice = ranking_options.index(add_ranking)
+#     df = gpt35_frames[f"df{choice}"]
+#     df, sum_col = add_Summaries(model_name=add_model, main_df=main_df, sub_df=df)
+
+#     print(df.columns)
+#     print(sum_col)
+#     print(df[sum_col][0])
+
+#     builder = GridOptionsBuilder.from_dataframe(df)
+#     builder.configure_column(field=f"{risklist[choice]}", maxWidth = 200, tooltipField = f"{justlist[choice]}", tooltipComponent = hover_code(f"{justlist[choice]}"))
+#     builder.configure_column(field="Use Case ID", maxWidth = 100)
+#     builder.configure_column(field="Use Case Name",tooltipField = sum_col, tooltipComponent = hover_code(sum_col))
+#     options = builder.build()
+    
+
+#     for col in options["columnDefs"]:
+#         if col["headerName"] == f"{justlist[choice]}" or col["headerName"] == sum_col:
+#             col["hide"] = True
+
+#     AgGrid(data=df, gridOptions=options, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW, theme="balham", allow_unsafe_jscode=True)
+
+
+# elif add_model == paid_source_models[0]: #### GPT-4 Chosen
+#     pass
+
