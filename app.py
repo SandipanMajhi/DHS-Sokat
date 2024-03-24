@@ -19,7 +19,7 @@ add_ranking = st.sidebar.selectbox(
 
 add_model = st.sidebar.selectbox(
     "Language Model",
-    ["All"] + paid_source_models
+    paid_source_models
 )
 
 ##### Sidebar code ends #####
@@ -52,6 +52,7 @@ def modify_columns(model_frames, risks):
         model_frames[f"df{i}"]['Use Case Name'] = stripped_Names
     
     return model_frames, risks, justifications
+
 @st.cache_data
 def add_Summaries(model_name, main_df, sub_df):
     sum_col = None
@@ -62,6 +63,9 @@ def add_Summaries(model_name, main_df, sub_df):
         
     df_sum = main_df[["Use Case ID", sum_col]]
     df_sum = df_sum.merge(sub_df, on ="Use Case ID", how = "inner")
+
+    df_sum.rename(columns = {sum_col:"summaries"},inplace = True)
+    sum_col = "summaries"
 
     return df_sum, sum_col
 
@@ -78,7 +82,7 @@ def hover_code(tooltipCol):
                                     eGui.style['background-color'] = color;
                                     eGui.style['color'] = 'white';     
                                     eGui.style['padding'] = "5px 5px 5px 5px";  
-                                    eGui.style['font-size'] = "15px";                                         
+                                    eGui.style['font-size'] = "20px";                                         
                                     eGui.style['border-style'] = 'double';                                                             
                                     this.eGui.innerText = data.{tooltipCol};
                                 }}
@@ -94,7 +98,7 @@ def hover_code(tooltipCol):
 
 main_df = load_main_frame()
 
-if add_model == paid_source_models[1]:
+if add_model == paid_source_models[1]: #### GPT 3.5 model chosen
 
     gpt35_frames, risklist, justlist = modify_columns(model_frames=load_gpt35_data(), risks=risk_dimensions_classes)
     choice = ranking_options.index(add_ranking)
@@ -103,6 +107,7 @@ if add_model == paid_source_models[1]:
 
     print(df.columns)
     print(sum_col)
+    print(df[sum_col][0])
 
     builder = GridOptionsBuilder.from_dataframe(df)
     builder.configure_column(field=f"{risklist[choice]}", maxWidth = 200, tooltipField = f"{justlist[choice]}", tooltipComponent = hover_code(f"{justlist[choice]}"))
@@ -116,4 +121,8 @@ if add_model == paid_source_models[1]:
             col["hide"] = True
 
     AgGrid(data=df, gridOptions=options, columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW, theme="balham", allow_unsafe_jscode=True)
+
+
+elif add_model == paid_source_models[0]: #### GPT-4 Chosen
+    pass
 

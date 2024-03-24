@@ -9,21 +9,36 @@ summary_prompt_template = """Write a concise summary of the following text.
 CONCISE SUMMARY:"""
 
 
-risk_dimensions = ["is the most complex, complexity", "is the most expensive", "is the most responsible and trustworthy", 
-                   "is the most rigorously tested to be effective", "is the safest for privacy, civil rights, and civil liberties",
-                   "is the most likely to avoid inappropriate biases", "is the most transparent and explainable"]
+risk_dimensions = ["most complex", "most expensive", "most trustworthy and dependable by the public and Department of Homeland Security", 
+                   "most effective by the public and Department of Homeland Security", "most safe",
+                   "most unbiased", "most explainable"]
 
 risk_dimensions_classes = ["Complexity", 
                            "Expensiveness", 
-                           "Responsible_and_Trustworthy", 
+                           "Trustworthy", 
                            "Effectiveness", 
                            "Privacy", "Inappropriate_Biases", "Explainability"]
 
-# ranking_prompt_with_tasks = [f"""You are an extremely intelligent and thoughtful Executive at the Department of Homeland Security. You will review each of these use cases along the following dimension.
-# Rank order and sort -- which {risk_dimensions[i]}. Give {risk_dimensions[i][3:]} a score 58 and least 1. Also provide justification for all ranks.""" for i in range(len(risk_dimensions))] 
 
-ranking_prompt_with_tasks = [f"""You are an extremely intelligent and thoughtful Executive at the Department of Homeland Security. You will review each of these use cases along the following dimension.
-Rank order and sort -- which {risk_dimensions[i]}. Give {risk_dimensions[i][3:]} a score 58 and least 1. Also provide justification for scores given to each use case.""" for i in range(len(risk_dimensions))] 
+sys_msg = "You are a smart Executive at the Department of Homeland Security. You are given a list of 58 use cases.\n"
+user_msg = [f"""
+For each one of the 58 use cases rank them from 1 to 58. Rank them from {risk_dimensions[i]} to least {risk_dimensions[i][5:]}. Ensure that each case is used and ranked to your best abilities. Do not exclude any cases.
+Here is sample output: 
+DHS-728 : 23
+DHS-98 : 46""" for i in range(len(risk_dimensions))] 
+
+
+# user_msg = f"""
+# For each one of the 58 use cases rank them from 1 to 58. Rank them from {risk_dimensions[0]} to least {risk_dimensions[0][5:]}. Ensure that each case is used and ranked to your best abilities. Do not exclude any cases.
+# Here is sample output: 
+# DHS-728 : 23
+# DHS-98 : 46"""
+
+# ranking_prompt_with_tasks = [f"""You are a smart Executive at the Department of Homeland Security. You are given a list of 58 use cases.
+# For each one of the 58 use cases rank them from 1 to 58. Rank them from {risk_dimensions[i]} to least {risk_dimensions[i][5:]}. Ensure that each case is used and ranked to your best abilities. Do not exclude any cases.""" for i in range(len(risk_dimensions))] 
+
+# ranking_prompt_with_tasks = [f"""You are an extremely intelligent and thoughtful Executive at the Department of Homeland Security. You will review each of these use cases along the following dimension.
+# Rank order and sort -- which {risk_dimensions[i]}. Give {risk_dimensions[i][3:]} a score 58 and least 1. Also provide justification for scores given to each use case.""" for i in range(len(risk_dimensions))] 
 
 
 #### Got good answers in gpt3.5 turbo with temperature 0.5 ####
@@ -34,9 +49,18 @@ Rank order and sort -- which {risk_dimensions[i]}. Give {risk_dimensions[i][3:]}
 # ranking_prompt_with_tasks = [f"""You are an extremely intelligent and thoughtful Executive at the Department of Homeland Security. You will review each of these use cases along the following dimension.
 # Rank order -- which {risk_dimensions[i]}. Assign each text a score where {risk_dimensions[i][3:]} a score 58 and least 1.""" for i in range(len(risk_dimensions))] 
 
-rest = """
-"{texts}"
-RANKING:
-"""
+# rest = """
+# "{texts}"
+# RANKING:
+# """
 
-ranking_prompt_with_tasks = [task+rest  for task in ranking_prompt_with_tasks]
+# rest = """
+# """
+
+# ranking_prompt_with_tasks = [task+rest  for task in user_msg]
+
+
+
+##### Lets revisit this again #####
+
+# Rank the 100 financial project summaries from 1 to 100 based on the estimated project costs in US Dollars. Consider the complexity of the project and time required for delivery as secondary factors that might influence costs. Pay particular attention to projects utilizing AI, as they could potentially offer cost-effective solutions. Additionally, be mindful of any potential cost-saving measures mentioned in the summaries. Cost is the most significant criterion for ranking these projects.
