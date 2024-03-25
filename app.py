@@ -1,4 +1,6 @@
 import streamlit as st
+# from streamlit_extras.app_logo import add_logo
+
 import pandas as pd
 from constants import *
 from  st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode, JsCode, ColumnsAutoSizeMode
@@ -8,7 +10,12 @@ import pickle as pkl
 st.set_page_config(layout="wide")
 
 
-st.header('DHS AI Use Case Ranking', divider='rainbow')
+col1, mid, col2 = st.columns([1, 0.5, 30])
+with col1:
+    st.image("Assets/sokat.jpeg", width=60)
+with col2:
+    st.header('DHS AI Use Case Ranking', divider='rainbow') 
+
 st.write('Powered by LLAMA-2-70B, Mixtral-8X7B, GPT-3.5 and GPT-4.')
 
 @st.cache_data
@@ -52,11 +59,11 @@ st.dataframe(
     hide_index=True,
     column_order= ("Use Case ID", "Use Case Name", 'BIAS_Ranking',
                                             'COMPLEXITY_Ranking',
-                                        'EFFECTIVENESS_Ranking',
-                                        'EXPENSIVENESS_Ranking',
-                                        'EXPLAINABLE_Ranking',
-                                        'SAFE_Ranking',
-                                        'TRUSTWORTHY_Ranking'
+                                            'EFFECTIVENESS_Ranking',
+                                            'EXPENSIVENESS_Ranking',
+                                            'EXPLAINABLE_Ranking',
+                                            'SAFE_Ranking',
+                                            'TRUSTWORTHY_Ranking'
                     )
 )
 

@@ -14,3 +14,5 @@ plotly
 streamlit-aggrid
 matplotlib
 numpy
+streamlit-extras
+validators
